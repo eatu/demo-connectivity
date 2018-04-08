@@ -1,0 +1,21 @@
+---
+applications:
+
+- name: connectivity-app-demo
+  host: connectivity-app-demo-philipp
+  buildpack: java_buildpack
+  memory: 512M
+  instances: 1
+  path: target/connectivity-simple.war
+  env:
+    # Accept any OAuth client of any identity zone  
+    SAP_JWT_TRUST_ACL: '[{"clientid":"*","identityzone":"*"}]'
+    # Useful on a dev environment
+    SKIP_SSL_VALIDATION: false
+    xsuaa_connectivity_instance_name: "xsuaa-demo"
+    xsuaa_destination_instance_name: "xsuaa-demo"
+    JAVA_OPTS: '-Xss349k'
+  services:
+    - xsuaa-demo
+    - connectivity-lite
+    - destination-lite

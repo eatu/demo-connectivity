@@ -1,0 +1,22 @@
+{
+	"routes": [{
+			"path": "/data-eu",
+			"target": {
+				"type": "destination",
+				"name": "abapBackend1",
+				"entryPath": "/sap/opu/odata/sap/EPM_REF_APPS_SHOP_SRV/"
+			},
+			"description": "Backend OData services"
+		},
+		{
+			"path": "/resources",
+			"target": {
+				"type": "service",
+				"name": "sapui5",
+				"entryPath": "/resources",
+				"preferLocal": true
+			},
+			"description": "SAPUI5 dist layer resources"
+		}
+	]
+}

@@ -1,0 +1,31 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="com.sap.core.connectivity.controller.SCCProductDemo" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Products">
+				<content>
+					<Table id="idProductsTable" inset="false" items="{ path: '/Products', sorter: { path: 'Name' } }"  fixedLayout="false">
+						<columns>
+							<Column>
+								<Text text="Product"/>
+							</Column>
+							<Column hAlign="Right">
+								<Text text="Price"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<ObjectIdentifier title="{Name}" text="{ProductId}"/>
+									<ObjectNumber
+										number="{ parts:[{path:'Price'},{path:'CurrencyCode'}], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false} }"
+										unit="{CurrencyCode}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
